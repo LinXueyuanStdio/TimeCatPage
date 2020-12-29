@@ -1,0 +1,43 @@
+apply from: "${project.rootDir}/gradle/library_header.gradle"
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.timecat["component-CommonResource"]
+    api rootProject.ext.timecat["component-CommonSetting"]
+
+    api rootProject.ext.timecat["component-PackRefreshList"]
+    api rootProject.ext.timecat["component-PackAlert"]
+
+    api rootProject.ext.androidx_lib["core-ktx"]
+    api 'com.github.gturedi:stateful-layout:1.2.1'
+
+    api 'com.billy.android:smart-swipe:1.1.2'
+    api 'com.billy.android:smart-swipe-x:1.1.0'
+
+    api rootProject.ext.dependencies["dagger2-android-support"]
+    api rootProject.ext.dependencies["joda-time"]
+    api rootProject.ext.dependencies["kotlin-stdlib"]
+    //RxLifecycle
+    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-navi:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.1'
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxandroid2"]
+    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["rxjava"]
+
+    // fragment 框架
+    api 'me.yokeyword:fragmentationx-core:1.0.2'
+    api 'me.yokeyword:eventbus-activity-scope:1.1.0'
+    api rootProject.ext.dependencies["eventBus"]
+
+    api rootProject.ext.androidx_lib["lifecycle-extensions"]
+    api rootProject.ext.androidx_lib["lifecycle-common-java8"]
+}
+
+apply from: "${project.rootDir}/gradle/library_tail.gradle"
