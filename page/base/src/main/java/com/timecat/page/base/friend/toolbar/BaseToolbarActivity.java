@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.timecat.page.base.R;
 import com.timecat.page.base.friend.list.BaseStatefulActivity;
 import com.timecat.page.base.view.BlurringToolbar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * @author 林学渊
@@ -38,9 +38,9 @@ public abstract class BaseToolbarActivity extends BaseStatefulActivity {
         toolbar = findViewById(R.id.toolbar);
         background = findViewById(R.id.background);
 
-        toolbar.post(this::applySkin);
         setUpToolbar();
         initView();
+        toolbar.post(this::applySkin);
     }
 
     protected void setBlurredToolbar() {
