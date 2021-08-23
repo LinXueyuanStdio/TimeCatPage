@@ -2,15 +2,15 @@ package com.timecat.page.base.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.timecat.page.base.R;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
-import com.jess.arms.utils.DeviceUtils;
-import com.timecat.page.base.R;
 
 /**
  * @author 林学渊
@@ -70,7 +70,6 @@ public class ToolbarUtils {
             }
         });
 
-
         return toolbar;
     }
 
@@ -86,8 +85,19 @@ public class ToolbarUtils {
 
     public static void initTintStatusBar(View tintStatusBar, Context context) {
         ViewGroup.LayoutParams lp = tintStatusBar.getLayoutParams();
-        lp.height = DeviceUtils.getStatusBarHeight(context);
+        lp.height = getStatusbarHeight(context);
         tintStatusBar.setLayoutParams(lp);
+    }
+
+
+    public static int getStatusbarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
+        } else {
+            return 0;
+        }
     }
 
     public static void initToolbarNav(Toolbar toolbar, boolean isHome, View.OnClickListener listener) {

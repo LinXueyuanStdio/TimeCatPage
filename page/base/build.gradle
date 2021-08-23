@@ -1,7 +1,6 @@
 apply from: "${project.rootDir}/gradle/library_header.gradle"
 
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
